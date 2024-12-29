@@ -34,3 +34,6 @@ Console.WriteLine("##############################");
 Console.WriteLine(friends); 
 friends = friends.Replace("Maria", "Adam");
 Console.WriteLine(friends); 
+
+
+
