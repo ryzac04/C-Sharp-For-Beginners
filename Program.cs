@@ -3,12 +3,12 @@
 // Hello World 
 Console.WriteLine("Hello, Ryan!");
 
-// Strings 
+// Strings and String Interpolation
 string firstFriend = "Maria"; 
 string secondFriend = "Sage"; 
 Console.WriteLine($"My friends are {firstFriend} and {secondFriend}."); 
 
-// Trim Method Example 
+// Trim method example 
 string thirdFriend = "   Nick   "; 
 
 string trimmedFriend = thirdFriend.TrimStart(); 
@@ -20,7 +20,7 @@ Console.WriteLine($"[{trimmedFriend}]");
 trimmedFriend = thirdFriend.Trim(); 
 Console.WriteLine($"[{trimmedFriend}]"); 
 
-// Replace Method Example 
+// Replace method example 
 string friends = $"My friends are {firstFriend} and {secondFriend}"; 
 
 // Demonstrates that Replace method does not redefine friends - a new string is returned from Replace method and the old string assigned to friends stays the same. 
@@ -35,4 +35,21 @@ Console.WriteLine(friends);
 friends = friends.Replace("Maria", "Adam");
 Console.WriteLine(friends); 
 
+// Contains method - returns a boolean value which tells if the string being searched for is found. 
+Console.WriteLine(friends.Contains("Maria")); // False
+Console.WriteLine(friends.Contains("Adam")); // True
+
+// ToUpper and ToLower methods
+Console.WriteLine(friends.ToLower()); 
+Console.WriteLine(friends.ToUpper()); 
+
+// Length method
+Console.WriteLine(friends.Length); 
+
+// Starts with and Ends with
+Console.WriteLine(friends.StartsWith("My")); // True
+Console.WriteLine(friends.StartsWith("Maria")); // False
+
+Console.WriteLine(friends.EndsWith("Sage")); // True
+Console.WriteLine(friends.EndsWith("My")); // False
 
