@@ -211,3 +211,66 @@ foreach (int score2 in scoreQuery2)
 }
 
 // OOP
+Console.WriteLine("Hello OOP!");
+
+var p1 = new Person("Ry", "Zac", new DateOnly(1990, 1, 1));
+var p2 = new Person("Ol", "MD", new DateOnly(1991, 1, 1));
+
+p1.Pets.Add(new Dog("Sammy"));
+p1.Pets.Add(new Fish("Rusty"));
+
+p2.Pets.Add(new Cat("Gracie")); 
+p2.Pets.Add(new Cat("Loki")); 
+
+List<Person> people = [p1, p2]; 
+
+foreach(var person in people)
+{
+    Console.WriteLine($"{person}");
+
+    foreach(var pet in person.Pets)
+    {
+        Console.WriteLine($"    {pet}");
+    }
+}
+
+Console.WriteLine(people.Count); 
+
+public class Person(string firstname, string lastname, DateOnly bd)
+{
+    public string First { get; } = firstname;
+    public string Last { get; } = lastname;
+    public DateOnly Birthday { get; } = bd; 
+    public List<Pet> Pets {get; } = new();
+
+    public override string ToString()
+    {
+        return $"Person {First} {Last}";
+    }
+}
+
+public abstract class Pet(string firstname)
+{
+    public string First { get; } = firstname; 
+    public abstract string MakeNoise(); 
+        public override string ToString()
+    {
+        return $"My name is {First}. I am a {GetType().Name} and I {MakeNoise()}.";
+    }
+}
+
+public class Cat(string firstname) : Pet(firstname)
+{
+    public override string MakeNoise() => "meow";
+
+}
+
+public class Dog(string firstname) : Pet(firstname)
+{
+    public override string MakeNoise() => "bark";
+}
+
+public class Fish(string firstname) : Pet(firstname)
+{
+    public override string MakeNoise() => "blub";
+}
