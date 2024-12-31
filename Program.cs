@@ -100,12 +100,33 @@ else
 // For Loops
 for (int i = 0; i < 5; i++)
 {
-    Console.WriteLine(i); 
+    Console.WriteLine(i);
 }
 
 // List T and Collections of Data
+var names = new List<string> { "Scott", "Ana", "Felipe" };
+
+names.Add("David");
+names.Add("Damian");
+names.Add("Maria");
+foreach (var name in names)
+{
+    Console.WriteLine($"Hello {name.ToUpper()}!");
+}
 
 // Arrays, Lists, Indexing, and Foreach
 
+Console.WriteLine(names[0]);
+Console.WriteLine(names[2]);
+Console.WriteLine(names[4]);
+Console.WriteLine(names[^1]);
+
 // Sorting and Searching Lists 
 
+// Language Integrated Query (LINQ) and IEnumerables 
+
+// LINQ Query Expressions From, Where, Orderby, and Select
+
+// LINQ Method Syntax vs Query
+
+// OOP
