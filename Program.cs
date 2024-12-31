@@ -115,6 +115,7 @@ foreach (var name in names)
 }
 
 // Arrays, Lists, Indexing, and Foreach
+Console.WriteLine("#####ARRAYS, LISTS, INDEXING#####");
 
 Console.WriteLine(names[0]);
 Console.WriteLine(names[2]);
@@ -122,11 +123,91 @@ Console.WriteLine(names[4]);
 Console.WriteLine(names[^1]);
 
 // Sorting and Searching Lists 
+Console.WriteLine("#####SORTING#####");
+
+names.Sort();
+
+foreach (var name in names)
+{
+    Console.WriteLine(name); 
+}
+
+var numbers = new List<int> {45, 56, 99, 48, 67, 78};
+
+Console.WriteLine($"{string.Join(", ", numbers)}"); 
+
+Console.WriteLine($"I found 99 at index {numbers.IndexOf(99)}."); 
+numbers.Sort();
+
+foreach (var number in numbers)
+{
+    Console.WriteLine($"{number}");
+}
+
+Console.WriteLine($"I found 99 at index {numbers.IndexOf(99)}."); 
 
 // Language Integrated Query (LINQ) and IEnumerables 
+// Console.WriteLine("#####LINQ LESSON- IMPERATIVE EXAMPLE#####");
 
-// LINQ Query Expressions From, Where, Orderby, and Select
+// List<int> scores = [97, 92, 81, 60]; 
 
-// LINQ Method Syntax vs Query
+// for(int i = 0; i < scores.Count; i++)
+// {
+//     if(scores[i] > 80)
+//     {
+//         Console.WriteLine($"I found a score over 80: {scores[i]}"); 
+//     }
+// }
+
+// return; 
+
+Console.WriteLine("#####LINQ LESSON#####"); 
+
+// LINQ Query Expression
+// // Specify the data source. 
+// List<int> scores = [3, 45, 82, 97, 92, 100, 81, 60]; 
+
+// // Define the query expression. 
+// IEnumerable<string> scoreQuery = 
+//     from score in scores
+//     where score > 80
+//     orderby score descending
+//     select $"The score is {score}."; 
+
+// // Execute the query. 
+// foreach (string s in scoreQuery)
+// {
+//     Console.WriteLine(s);
+// }
+
+// LINQ Method Syntax - both scoreQuery and scoreQuery 2 are LINQ. They functionally do the same thing, but written differently.  
+// Specify the data source. 
+List<int> scores = [3, 45, 82, 97, 92, 100, 81, 60]; 
+
+// Define the query expression. 
+IEnumerable<int> scoreQuery = 
+    from score in scores
+    where score > 80
+    orderby score descending
+    select score; 
+
+var scoreQuery2 = scores.Where(s => s > 80).
+    OrderByDescending(s => s); // select is implied
+
+List<int> myScores = scoreQuery.ToList(); 
+List<int> myScores2 = scoreQuery2.ToList(); 
+
+// Execute the query. 
+Console.WriteLine("scoreQuery result");
+foreach (int score in scoreQuery)
+{
+    Console.WriteLine(score);
+}
+
+Console.WriteLine("scoreQuery2 result");
+foreach (int score2 in scoreQuery2)
+{
+    Console.WriteLine(score2);
+}
 
 // OOP
